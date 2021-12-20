@@ -102,11 +102,29 @@ namespace Library
             }
             nameswithY(books, books200);
 
+            //שאלה 9
 
+            Random randomnum1 = new Random();
 
+            Book[] bookss = new Book[] { new Book("Harry Potter", "J.K. Rowling", randomnum1.Next(10, 500)) ,
+                                        new Book ("Lord of the Rings","J.R.R. Tolkien",randomnum1.Next(10, 500)),
+                                        new Book ("Harry Potter","Lewis Carroll",randomnum1.Next(10, 500)),
+                                        new Book("Narnia","C.S. Lewis",randomnum1.Next(10, 500)),
+                                        new Book("Harry Potter","Carlo Collodi",randomnum1.Next(10, 500)),
+                                        new Book("Anney","L. M. Montgomery",randomnum1.Next(10, 500))};
 
+            //שאלה 10
+            var filteredList = (from item in bookss
+                                group item by item.name);
 
-
+            foreach (var book in filteredList)
+            {
+                Console.WriteLine($"Book name: {book.Key}");
+                foreach (Book bookitem in book)
+                {
+                    Console.WriteLine(bookitem.name);
+                }
+            }
 
 
 
